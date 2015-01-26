@@ -5,7 +5,7 @@ students ={
 	0 => {
 		id:0,
 		name: "David",
-		age: "32"
+		age: "32",
 		favorite_spell: "apparating"
 	}
 }
@@ -24,6 +24,9 @@ end
 put '/student/:id' do
 	student=students[params[:id].to_i]
 	student[:name] = params["newname"]
+	student[:age] = params["newage"]
+	student[:fave_spell] = params["newfavespell"]
+
 	redirect '/students'
 end
 
@@ -31,7 +34,8 @@ post '/student' do
 	newstudent = {
 		id: counter,
 		name: params["name"],
-		type: params["type"]
+		age: params["age"],
+		favorite_spell: params["fave_spell"]
 	}
 	students[counter] = newstudent
 	counter += 1
