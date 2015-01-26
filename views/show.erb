@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>restful CRUD</title>
+    </head>
+    <body>
+        <header>
+            <h1>petulance</h1>
+            <a href="/pets">go home</a>
+        </header>
+        <p><%= thispet[:name]  %> is a <%= thispet[:type]  %>.</p>
+        <h3>Update <%= thispet[:name]  %>'s here:</h3>
+        <form action="/pet/<%= thispet[:id] %>" method="post">
+            <input type="hidden" name="_method" value="put" required>
+            <input type="text" name = "newname" placeholder="pet name">
+            <button>UPDATE IT!!!1!!</button>
+        </form>
+        <h3>Delete <%= thispet[:name]  %> here:</h3>
+        <form action="/pet/<%= thispet[:id] %>" method="post">
+            <input type="hidden" name="_method" value="delete" required>
+            <button>DELETE IT!!!1!!</button>
+        </form>
+    </body>
+</html>

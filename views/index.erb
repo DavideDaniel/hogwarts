@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hogwarts</title>
+</head>
+<body>
+	<ul>
+		<% pets.each do |key, pet| %>
+		<li><%= pet[:name]  %> is a <%= pet[:type]  %>.
+			This pet has an id of <a href="/pet/<%= pet[:id] %>">
+			<%= pet[:id]  %></a>.
+		<%	end %>
+		</li>
+	</ul>
+
+	<h3>Add a pet here:</h3>
+	<form action="/pet" method="post">
+		<input type="text" name="name" placeholder="name" required>
+		<input type="text" name="age" placeholder="age" required>
+		<input type="text" name="fave_spell" placeholder="favorite spell" required>
+		<button>ADD IT!</button>
+	</form>
+		
+</body>
+</html>
